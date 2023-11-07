@@ -1,0 +1,324 @@
+// Variable
+$color-bg-1: linear-gradient(rgba(24, 27, 69, 0.7),rgb(184, 60, 89,0.7));
+$color-bg-2: #F7F7F7;
+$color-bg-3: linear-gradient(to right, rgba(231, 186, 204, 0.2) , rgba(178, 178, 234, 0.4));
+$color-black-1: rgb(0, 0, 0, 0.9);
+$color-black-2: rgb(21, 21, 21);
+$color-white-1: white;
+$color-orange-1: #eb4d26;
+$color-orange-2: #f37e60;
+$color-red-1: red;
+$color-blue-1: blue;
+$color-blue-2: #60679B;
+$color-green-1: rgb(14, 83, 83);
+$primary: #11998e;
+$secondary: #38ef7d;
+$white: #fff;
+$gray: #9b9b9b;
+@import 'https://fonts.googleapis.com/css?family=Roboto:100,300';
+@import 'https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.3.2/css/simple-line-icons.min.css';
+@import 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css';
+@import 'https://fonts.googleapis.com/css?family=Roboto+Mono:300,700';
+
+
+// function
+@mixin btn-theme($color1, $color2){
+    background-color: $color1;
+    color: $color2;
+    padding: 13px 20px;
+}
+@mixin btn-theme-1($color1, $color2){
+    margin-top: 15px;
+    background-color: $color1;
+    color: $color2;
+    padding: 8px 10px;
+    font-size: 15px;
+}
+@mixin btn-theme-2($color1, $color2){
+    background-color: $color1;
+    color: $color2;
+    padding: 1px 16px;
+}
+@mixin btn-theme-3($color1, $color2){
+    background-color: $color1;
+    color: $color2;
+    padding: 8px 16px;
+}
+
+body{
+    background: $color-bg-2;
+}
+
+.container{
+    width: 85%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.header{
+    background-color: $color-black-1;
+    color: $color-white-1;
+    .logo{
+        &:hover{
+            text-decoration: none;
+        }
+    }
+    h2{
+        transform: translateY(-4px);
+    }
+    .effect{
+        text-decoration: none;
+        i{
+            transition: 0.3s;
+        }
+        h2{
+            transition: 0.3s;
+        }
+        &:hover i{
+            font-size: 25px;
+            color: $color-white-1;
+        }
+        &:hover h2{
+            font-size: 17px;
+            color: $color-white-1;
+        }
+    }
+    .right{
+        .btn{
+            color: $color-white-1;
+        }
+        .offcanvas-body{
+            margin: 0;
+            padding: 0;
+            color: black;
+            .content{
+                background-color: $color-bg-2;
+            }
+        }
+        .product-order{
+            .right{
+                p{
+                    font-size: 14px;
+                }
+                button{
+                    margin-top: 20px;
+                    color: red;
+                    position: relative;
+                    transition: 0.3s;
+                    &::before{
+                        position: absolute;
+                        content: "";
+                        bottom: 2px;
+                        left: 0;
+                        height: 1px;
+                        width: 100%;
+                        background: red;                       
+                    }
+                    &:hover{
+                        color: $color-blue-1;
+                    }
+                    &:hover::before{
+                        background: $color-blue-1
+                    }
+                }
+            }
+        }
+    }
+    .btn-1{
+        @include btn-theme-1(rgb(23, 23, 60), white);
+        transition: 0.3s;
+        &:hover{
+            @include btn-theme-1(rgb(66, 115, 171), black);
+        }
+    }
+    .btn-2{
+        @include btn-theme-1(red, white);
+        transition: 0.3s;
+        &:hover{
+            @include btn-theme-1(rgb(195, 82, 44), black);
+        }
+    }
+    .btn-3{
+        @include btn-theme-1(rgb(237, 220, 26), white);
+        transition: 0.3s;
+        &:hover{
+            @include btn-theme-1(rgb(212, 212, 30), black);
+        }
+    }
+    .round-1{
+        padding: 3px 10px;
+        border-radius: 50%;
+        background: rgb(23, 23, 60);
+        color: #F7F7F7;
+    }
+    .btn-add{
+        z-index: 1;
+        @include btn-theme(yellow, black);
+    }
+    .showQuantity{
+        padding: 2px 3px;
+        border-radius: 50%;
+        font-size: 12px;
+        font-weight: 700;
+    }
+}
+
+.content{
+    .title{
+        background-color: $color-blue-2;
+        .left{
+            color: $color-white-1;
+        }
+        .right{
+            #btnThemSP{
+                font-size: 16px;
+                @include btn-theme-2($color-green-1, $color-white-1);
+                transition: 0.3s;
+                &:hover{
+                    @include btn-theme-2($color-white-1, $color-black-1);
+                }
+            }
+            .sort{
+                font-size: 16px;
+                border-radius: 5px;
+                @include btn-theme-2(#138294, $color-white-1);
+                transition: 0.3s;
+                &:hover{
+                    @include btn-theme-2(#19a9c0, black)
+                }   
+            }
+            input{
+                font-size: 16px;
+            }
+        }
+    }
+    .table{
+        background-color: $color-white-1;
+    }
+    .form__group {
+        position: relative;
+        padding: 15px 0 0;
+        margin-top: 10px;
+        width: 100%;
+      }
+      .form__field {
+        font-family: inherit;
+        width: 100%;
+        border: 0;
+        border-bottom: 2px solid $gray;
+        outline: 0;
+        font-size: 1.3rem;
+        color: black;
+        padding: 7px 0;
+        background: transparent;
+        transition: border-color 0.2s;
+      
+        &::placeholder {
+          color: transparent;
+        }
+      
+        &:placeholder-shown ~ .form__label {
+          font-size: 1rem;
+          cursor: text;
+          top: 35px;
+        }
+      }
+      .form__label {
+        position: absolute;
+        top: 0;
+        display: block;
+        transition: 0.2s;
+        font-size: 1rem;
+        color: $gray;
+      }
+      .form__field:focus {
+        ~ .form__label {
+          position: absolute;
+          top: 0;
+          display: block;
+          transition: 0.2s;
+          font-size: 1rem;
+          color: $primary;
+          font-weight:700;    
+        }
+        padding-bottom: 6px;  
+        font-weight: 700;
+        border-width: 3px;
+        border-image: linear-gradient(to right, $primary,$secondary);
+        border-image-slice: 1;
+      }
+      /* reset input */
+      .form__field{
+        &:required,&:invalid { box-shadow:none; }
+      }
+    .modal-dialog{
+        background-color: $color-bg-2;
+    }
+    .modal-content{
+        .container{
+            box-shadow: rgba(178, 178, 234, 0.2) 0px 7px 29px 0px;
+        }
+    }
+    .modal-footer{
+        .btn-add{
+            @include btn-theme-3(rgb(205, 143, 26), $color-white-1);
+            transition: 0.3s;
+            &:hover{
+                @include btn-theme-3(rgb(244, 170, 32), black)
+            }
+        }
+        .close-btn{
+            @include btn-theme-3($color-blue-2, $color-white-1);
+            transition: 0.3s;
+            &:hover{
+                @include btn-theme-3(#8992d4, black)
+            }
+        }
+        .btn-update{
+            @include btn-theme-3(#138294, $color-white-1);
+            transition: 0.3s;
+            &:hover{
+                @include btn-theme-3(#19a9c0, black)
+            }
+        }
+        .btn-reset{
+            @include btn-theme-3(rgb(194, 25, 25), $color-white-1);
+            transition: 0.3s;
+            &:hover{
+                @include btn-theme-3(rgb(224, 72, 72), black)
+            }
+        }
+    }
+    .input-group{
+        span{
+            transition: 0.3s;
+            &:hover{
+                background-color: rgb(170, 168, 168);
+                color: white;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+footer{
+    background-image: $color-bg-1;
+    color: $color-white-1;
+    .middle{
+        a, .cotact{
+            margin-bottom: 15px;
+            text-decoration: dashed;
+        }
+        i{
+            padding-right: 10px;
+        }
+        a{
+            &:hover{
+                color: $color-white-1;
+            }
+        }
+    }
+}
+
+
+ 

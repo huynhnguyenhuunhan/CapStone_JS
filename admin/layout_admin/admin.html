@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CyberPhone</title>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <!-- Boostrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+
+    <!-- FontAwesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Bootstrap CSS 5.0 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <!-- Bootstrap CSS-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+
+    <!-- Tailwind CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.0-alpha.1/tailwind.min.css"
+      integrity="sha512-NUFPUFpyuQGekaUg+cNAh8qN0bwd04x5tBgYRT9iNdrUV38gVu4QU0jlx1CSBKPOnp5invOm0HPW4+cXqjBeAQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="../css/index.css" />
+  </head>
+  <body>
+    <header class="header fixed top-0 left-0 w-full">
+      <div class="container flex justify-between items-center h-20">
+        <nav class="left flex space-x-10">
+          <a href="#" class="logo mr-6 duration-300 hover:text-white">
+            <i class="fa fa-robot pt-2 text-2xl mr-2"></i>
+            <span class="text-2xl">Cyber Phone</span>
+          </a>
+          <a href="../../index.html" class="effect">
+            <i class="fa fa-home pl-2 text-2xl"></i>
+            <h2 class="">Home</h2>
+          </a>
+          <a href="../../customer/view/index.html" class="effect">
+            <i class="fa fa-store pl-1 text-2xl"></i>
+            <h2>Store</h2>
+          </a>
+        </nav>
+        <div class="right">
+          <button class="btn effect">
+            <div class="relative">
+              <i class="fa fa-shopping-cart text-2xl"></i>
+              <h2>Cart</h2>
+            </div>
+          </button>
+        </div>
+      </div>
+    </header>
+    <div class="clear-both"></div>
+    <section class="content pt-36">
+      <div class="container">
+        <div
+          class="title flex justify-between items-center h-16 text-3xl font-semibold rounded-t-lg px-2"
+        >
+          <div class="left">
+            <h1>Phone Management</h1>
+          </div>
+          <div class="right flex">
+            <button
+              id="btnThemSP"
+              class="btn mr-3"
+              data-toggle="modal"
+              data-target="#myModal"
+            >
+              <i class="fa fa-plus-circle mr-1"></i>
+              <span>Add Phone</span>
+            </button>
+            <!-- BEGIN TÌM KIẾM -->
+            <div class="input-group">
+              <input
+                id="searchSP"
+                type="text"
+                class="form-control"
+                placeholder="Enter phone name"
+                aria-label="Recipient's username"
+                aria-describedby="basic-addon2"
+              />
+              <div class="input-group-append">
+                <span
+                  onclick="searchPhoneName()"
+                  class="input-group-text"
+                  id="basic-addon2"
+                  ><i class="fa fa-search"></i
+                ></span>
+              </div>
+            </div>
+            <!-- END TÌM KIẾM -->
+            <button onclick="sortPrice()" class="flex items-center ml-3 sort">
+              <i class="fa fa-sort-amount-down pr-1"></i>
+              <span>Sort</span>
+            </button>
+          </div>
+        </div>
+        <!-- Begin Table SP -->
+        <table class="table">
+          <thead>
+            <th>#</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Photo</th>
+            <th>Description</th>
+            <th><i class="fa fa-cog"></i> Action</th>
+          </thead>
+          <tbody id="tablePhone" class="h-4"></tbody>
+        </table>
+        <!-- End Table SP -->
+
+        <!-- The Modal -->
+        <div class="modal fade" id="myModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <!-- Modal Header -->
+              <div class="container">
+                <div class="modal-header justify-center">
+                  <h4 class="modal-title text-3xl">Phone Management</h4>
+                  <button type="button" class="close" data-dismiss="modal">
+                    &times;
+                  </button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                  <form role="form" id="formPhone">
+    
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"
+                            ><i class="fa-solid fa-mobile-screen-button"></i></span>
+                        </div>
+                        <input
+                          type="text"
+                          name="name"
+                          id="namePhone"
+                          class="form-control input-sm"
+                          placeholder="Phone name"
+                        />
+                      </div>
+                      <span class="sp-thongbao" id="tbname"></span>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"
+                            ><i class="fa-regular fa-dollar-sign"></i></span>
+                        </div>
+                        <input
+                          type="text"
+                          name="name"
+                          id="pricePhone"
+                          class="form-control input-sm"
+                          placeholder="Price"
+                        />
+                      </div>
+                      <span class="sp-thongbao" id="tbprice"></span>
+                    </div>
+      
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fa-solid fa-mobile-screen"></i></span>
+                        </div>
+                        <input
+                          type="text"
+                          name="email"
+                          id="screen"
+                          class="form-control input-sm"
+                          placeholder="Screen"
+                        />
+                      </div>
+      
+                      <span class="sp-thongbao" id="tbscreen"></span>
+                    </div>
+      
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fa-solid fa-camera"></i></span>
+                        </div>
+                        <input
+                          type="text"
+                          name="name"
+                          id="backCam"
+                          class="form-control"
+                          placeholder="Back Camera"
+                        />
+                      </div>
+      
+                      <span class="sp-thongbao" id="tbbackCam"></span>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fa-solid fa-camera"></i></i></span>
+                        </div>
+                        <input
+                          type="text"
+                          name="name"
+                          id="frontCam"
+                          class="form-control"
+                          placeholder="Front Camera"
+                        />
+                      </div>
+      
+                      <span class="sp-thongbao" id="tbfrontCam"></span>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fa-solid fa-link"></i></i></span>
+                        </div>
+                        <input
+                          type="text"
+                          name="name"
+                          id="imgPhone"
+                          class="form-control"
+                          placeholder="Image link"
+                        />
+                      </div>
+      
+                      <span class="sp-thongbao" id="tbimg"></span>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fa-solid fa-comment"></i></span>
+                        </div>
+                        <input
+                          type="text"
+                          name="name"
+                          id="desc"
+                          class="form-control"
+                          placeholder="Description"
+                        />
+                      </div>
+      
+                      <span class="sp-thongbao" id="tbdesc"></span>
+                    </div>
+      
+                 
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fa-solid fa-signature"></i></span>
+                        </div>
+                        <select class="form-control" name="loai" id="type">
+                          <option value ="all">Select brand</option>
+                          <option value="loai1">Apple</option>
+                          <option value="loai2">Samsung</option>
+                        </select>
+                      </div>
+      
+                      <span class="sp-thongbao" id="tbtype"></span>
+                    </div>
+                
+                  </form>
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button onclick="createNewProduct()" class="btn btn-add">
+                    Add Phone
+                  </button>
+                  <button onclick="updateSP()" class="btn btn-update">
+                    Update
+                  </button>
+                  <button onclick="closeButton()" class="btn close-btn">
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="mt-32 h-96">
+      <div class="container">
+        <div class="top flex justify-center h-20 items-center">
+          <div class="content pr-4">
+            <p>Get connected with us on social networks:</p>
+          </div>
+          <hr class="text-white" />
+          <div class="logo space-x-5">
+            <a href="">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="">
+              <i class="fab fa-google"></i>
+            </a>
+            <a href="">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+        <div class="middle flex mt-3">
+          <div class="col">
+            <div class="top mb-3">
+              <i class="fa fa-robot mr-2"></i>
+              <span class="text-xl font-medium">CYBER PHONE</span>
+            </div>
+            <div class="bottom">
+              <p>
+                We pride ourselves on our efficiency and hard work, but most of
+                all our ability to source you the best quality and best value
+                products and devices in the market.
+              </p>
+            </div>
+          </div>
+          <div class="col">
+            <h2 class="font-medium mb-4">BRANDS</h2>
+            <div class="flex flex-col">
+              <a href="">Iphone</a>
+              <a href="">Sumsung</a>
+              <a href="">Xiaomi</a>
+              <a href="">Oppo</a>
+            </div>
+          </div>
+          <div class="col">
+            <h2 class="font-medium mb-6">USEFUL LINKS</h2>
+            <div class="flex flex-col">
+              <a href="">Pricing</a>
+              <a href="">Settings</a>
+              <a href="">Orders</a>
+              <a href="">Help</a>
+            </div>
+          </div>
+          <div class="col">
+            <h2 class="font-medium mb-6">CONTACT</h2>
+            <div class="flex flex-col">
+              <div class="cotact">
+                <i class="fa fa-home"></i>Da Nang, Thanh Khe, VN
+              </div>
+              <div class="cotact">
+                <i class="fa fa-envelope-square"></i> cyberphone@mail.com
+              </div>
+              <div class="cotact">
+                <i class="fa fa-mobile"></i> + 01 234 567 88
+              </div>
+              <div class="cotact">
+                <i class="fa fa-print"></i> + 01 234 567 89
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bottom text-center mt-3">
+          <span>© 2022 Copyright: </span>
+          <a href="" class="font-bold">Cyber Phone</a>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+      integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+    <!-- Axios -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"
+      integrity="sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script type="module" src="../js/admin_JS/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,316 @@
+@import 'https://fonts.googleapis.com/css?family=Roboto:100,300';
+@import 'https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.3.2/css/simple-line-icons.min.css';
+@import 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css';
+@import 'https://fonts.googleapis.com/css?family=Roboto+Mono:300,700';
+body {
+  background: #F7F7F7;
+}
+
+.container {
+  width: 85%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+}
+.header .logo:hover {
+  text-decoration: none;
+}
+.header h2 {
+  transform: translateY(-4px);
+}
+.header .effect {
+  text-decoration: none;
+}
+.header .effect i {
+  transition: 0.3s;
+}
+.header .effect h2 {
+  transition: 0.3s;
+}
+.header .effect:hover i {
+  font-size: 25px;
+  color: white;
+}
+.header .effect:hover h2 {
+  font-size: 17px;
+  color: white;
+}
+.header .right .btn {
+  color: white;
+}
+.header .right .offcanvas-body {
+  margin: 0;
+  padding: 0;
+  color: black;
+}
+.header .right .offcanvas-body .content {
+  background-color: #F7F7F7;
+}
+.header .right .product-order .right p {
+  font-size: 14px;
+}
+.header .right .product-order .right button {
+  margin-top: 20px;
+  color: red;
+  position: relative;
+  transition: 0.3s;
+}
+.header .right .product-order .right button::before {
+  position: absolute;
+  content: "";
+  bottom: 2px;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background: red;
+}
+.header .right .product-order .right button:hover {
+  color: blue;
+}
+.header .right .product-order .right button:hover::before {
+  background: blue;
+}
+.header .btn-1 {
+  margin-top: 15px;
+  background-color: rgb(23, 23, 60);
+  color: white;
+  padding: 8px 10px;
+  font-size: 15px;
+  transition: 0.3s;
+}
+.header .btn-1:hover {
+  margin-top: 15px;
+  background-color: rgb(66, 115, 171);
+  color: black;
+  padding: 8px 10px;
+  font-size: 15px;
+}
+.header .btn-2 {
+  margin-top: 15px;
+  background-color: red;
+  color: white;
+  padding: 8px 10px;
+  font-size: 15px;
+  transition: 0.3s;
+}
+.header .btn-2:hover {
+  margin-top: 15px;
+  background-color: rgb(195, 82, 44);
+  color: black;
+  padding: 8px 10px;
+  font-size: 15px;
+}
+.header .btn-3 {
+  margin-top: 15px;
+  background-color: rgb(237, 220, 26);
+  color: white;
+  padding: 8px 10px;
+  font-size: 15px;
+  transition: 0.3s;
+}
+.header .btn-3:hover {
+  margin-top: 15px;
+  background-color: rgb(212, 212, 30);
+  color: black;
+  padding: 8px 10px;
+  font-size: 15px;
+}
+.header .round-1 {
+  padding: 3px 10px;
+  border-radius: 50%;
+  background: rgb(23, 23, 60);
+  color: #F7F7F7;
+}
+.header .btn-add {
+  z-index: 1;
+  background-color: yellow;
+  color: black;
+  padding: 13px 20px;
+}
+.header .showQuantity {
+  padding: 2px 3px;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.content {
+  /* reset input */
+}
+.content .title {
+  background-color: #60679B;
+}
+.content .title .left {
+  color: white;
+}
+.content .title .right #btnThemSP {
+  font-size: 16px;
+  background-color: rgb(14, 83, 83);
+  color: white;
+  padding: 1px 16px;
+  transition: 0.3s;
+}
+.content .title .right #btnThemSP:hover {
+  background-color: white;
+  color: rgba(0, 0, 0, 0.9);
+  padding: 1px 16px;
+}
+.content .title .right .sort {
+  font-size: 16px;
+  border-radius: 5px;
+  background-color: #138294;
+  color: white;
+  padding: 1px 16px;
+  transition: 0.3s;
+}
+.content .title .right .sort:hover {
+  background-color: #19a9c0;
+  color: black;
+  padding: 1px 16px;
+}
+.content .title .right input {
+  font-size: 16px;
+}
+.content .table {
+  background-color: white;
+}
+.content .form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 100%;
+}
+.content .form__field {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid #9b9b9b;
+  outline: 0;
+  font-size: 1.3rem;
+  color: black;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+.content .form__field::-moz-placeholder {
+  color: transparent;
+}
+.content .form__field::placeholder {
+  color: transparent;
+}
+.content .form__field:-moz-placeholder-shown ~ .form__label {
+  font-size: 1rem;
+  cursor: text;
+  top: 35px;
+}
+.content .form__field:placeholder-shown ~ .form__label {
+  font-size: 1rem;
+  cursor: text;
+  top: 35px;
+}
+.content .form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: #9b9b9b;
+}
+.content .form__field:focus {
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  -o-border-image: linear-gradient(to right, #11998e, #38ef7d);
+     border-image: linear-gradient(to right, #11998e, #38ef7d);
+  border-image-slice: 1;
+}
+.content .form__field:focus ~ .form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: #11998e;
+  font-weight: 700;
+}
+.content .form__field:required, .content .form__field:invalid {
+  box-shadow: none;
+}
+.content .modal-dialog {
+  background-color: #F7F7F7;
+}
+.content .modal-content .container {
+  box-shadow: rgba(178, 178, 234, 0.2) 0px 7px 29px 0px;
+}
+.content .modal-footer .btn-add {
+  background-color: rgb(205, 143, 26);
+  color: white;
+  padding: 8px 16px;
+  transition: 0.3s;
+}
+.content .modal-footer .btn-add:hover {
+  background-color: rgb(244, 170, 32);
+  color: black;
+  padding: 8px 16px;
+}
+.content .modal-footer .close-btn {
+  background-color: #60679B;
+  color: white;
+  padding: 8px 16px;
+  transition: 0.3s;
+}
+.content .modal-footer .close-btn:hover {
+  background-color: #8992d4;
+  color: black;
+  padding: 8px 16px;
+}
+.content .modal-footer .btn-update {
+  background-color: #138294;
+  color: white;
+  padding: 8px 16px;
+  transition: 0.3s;
+}
+.content .modal-footer .btn-update:hover {
+  background-color: #19a9c0;
+  color: black;
+  padding: 8px 16px;
+}
+.content .modal-footer .btn-reset {
+  background-color: rgb(194, 25, 25);
+  color: white;
+  padding: 8px 16px;
+  transition: 0.3s;
+}
+.content .modal-footer .btn-reset:hover {
+  background-color: rgb(224, 72, 72);
+  color: black;
+  padding: 8px 16px;
+}
+.content .input-group span {
+  transition: 0.3s;
+}
+.content .input-group span:hover {
+  background-color: rgb(170, 168, 168);
+  color: white;
+  cursor: pointer;
+}
+
+footer {
+  background-image: linear-gradient(rgba(24, 27, 69, 0.7), rgba(184, 60, 89, 0.7));
+  color: white;
+}
+footer .middle a, footer .middle .cotact {
+  margin-bottom: 15px;
+  -webkit-text-decoration: dashed;
+          text-decoration: dashed;
+}
+footer .middle i {
+  padding-right: 10px;
+}
+footer .middle a:hover {
+  color: white;
+}/*# sourceMappingURL=index.css.map */
